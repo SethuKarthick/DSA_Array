@@ -16,6 +16,20 @@ def move_to_end(array, gvn_integer):
         left_idx += 1
     return array
 
-new_array = move_to_end(array=array, gvn_integer=integer)
+# new_array = move_to_end(array=array, gvn_integer=integer)
+# print(new_array)
+
+def move_ele(array):
+    zero = 0
+
+    for i in range(len(array)):
+        if array[i] != 0:
+            array[i], array[zero] = array[zero], array[i]
+            zero+=1
+    return array
+
+new_array = move_ele(array=array)
 print(new_array)
+
+
 
