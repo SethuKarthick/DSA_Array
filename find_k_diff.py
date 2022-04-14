@@ -10,7 +10,7 @@ def findPairs(nums, k) -> int:
             if nums[j] - nums[i] > k:
                 break
             if nums[j] - nums[i] == k:
-                res.append(str(nums[i]) + str(nums[j]))
+                res.append([str(nums[i]), str(nums[j])])
                 
     return len(set(res))
                 

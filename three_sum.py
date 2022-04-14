@@ -30,6 +30,49 @@ def find_triplets_sum(array, target_sum):
     return triplets
 
      
-possible_combinations = find_triplets_sum(array=array, target_sum=target_sum)
+# possible_combinations = find_triplets_sum(array=array, target_sum=target_sum)
 
-print(possible_combinations)
+# print(possible_combinations)
+
+
+
+
+
+class Solution:
+    
+    def threeSum(self, nums: list) -> list:
+        
+        nums.sort()
+        
+        triplets = []
+        
+        for i in range(len(nums)-2):
+            if i>0 and nums[i] == nums[i-1]:
+                continue
+                
+            left_idx = i+1
+            right_idx = len(nums) -1
+            
+            while left_idx < right_idx:
+                current_sum = nums[i]+nums[left_idx]+nums[right_idx]
+                
+                if current_sum < 0:
+                    left_idx += 1
+                elif current_sum > 0:
+                    right_idx -= 1
+                    
+                else:
+                    triplets.append([nums[i], nums[left_idx], nums[right_idx]])
+                    
+                    while left_idx < right_idx and nums[left_idx] == nums[left_idx+1]:
+                        left_idx += 1
+                    while left_idx < right_idx and nums[right_idx] == nums[right_idx-1]:
+                        right_idx -= 1
+                    left_idx += 1
+                    right_idx -= 1
+                    
+        return triplets 
+
+
+Solution().threeSum(nums = [0,0,0,0])
+

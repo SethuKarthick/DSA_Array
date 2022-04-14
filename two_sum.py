@@ -14,3 +14,15 @@ def two_sum(array_list, target_num):
 
 
 two_sum(array_list=array_list, target_num=target_num)
+
+
+def two_summ(nums, target_sum):
+    
+    for num in nums:
+        potential_match = target_sum - num
+        if potential_match in nums:
+            return [nums.index(potential_match), nums.index(num)]
+        else:
+            nums[num] = True
+    return []
+
